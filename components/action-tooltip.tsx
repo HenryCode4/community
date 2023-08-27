@@ -14,24 +14,24 @@ interface ActionTooltipProps {
   align?: "start" | "center" | "end";
 }
 
-const ActionTooltip = ({
+export const ActionTooltip = ({
   label,
   children,
   side,
-  align,
+  align
 }: ActionTooltipProps) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipTrigger asChild>
+          {children}
+        </TooltipTrigger>
         <TooltipContent side={side} align={align}>
           <p className="font-semibold text-sm capitalize">
             {label.toLowerCase()}
-            </p>
+          </p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-  );
-};
-
-export default ActionTooltip;
+  )
+}
